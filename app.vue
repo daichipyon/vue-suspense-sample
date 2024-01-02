@@ -1,5 +1,7 @@
 <template>
   <div>
-    <NuxtWelcome />
+    <ClientOnly>
+      <MemberList />
+    </ClientOnly>
   </div>
 </template>
