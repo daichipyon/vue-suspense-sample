@@ -1,11 +1,11 @@
 <template>
     <div class="card-wrapper">
-      <li v-for="(user) in users" :key="user">{{ user }}</li>
+      <li v-for="(user) in users" :key="user.indexOf">{{ user }}</li>
     </div>
   </template>
   
   <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
 
   const users = ref<String[]>([]);
   const fetchUsers = async () => {
