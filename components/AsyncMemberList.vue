@@ -9,13 +9,12 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   async setup() {
-    const fetchUsers = () => {
-      // 2000ms待機したのち、サンプルのUser名の配列を返す
-      return new Promise<string[]>(resolve => {
-        setTimeout(() => {
-          resolve(['kyono', 'takeshi', 'motokatsu'])
-        }, 2000)
-      })
+    const fetchUsers = async () => {
+      // 2000ms待機した後、サンプルのUser名をAPIからfetchして配列を返す
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      const res = await fetch('https://jsonplaceholder.typicode.com/users');
+      const users = await res.json();
+      return users.map((user: any) => user.name);
     };
     const users = await fetchUsers();
 
