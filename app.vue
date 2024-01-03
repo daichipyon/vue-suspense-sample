@@ -6,9 +6,7 @@
     </ClientOnly>
 
     <h1>not client only</h1>
-    <ClientOnly>
-      <MemberList />
-    </ClientOnly>
+    <MemberList />
 
   </div>
 </template>
